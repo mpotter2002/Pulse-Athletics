@@ -1,0 +1,20 @@
+<h1> Edit Customer</h1>
+<form action="/customers/save" method="post">
+<input type="hidden" name="customer_id" value="<%= onerec.customer_id %>" >
+<table>
+<tr> <td> First Name: </td> <td> <input type="text" name="first_name" value="<%= onerec.first_name %>"
+required> </td> </tr>
+<tr> <td> Last Name: </td> <td> <input type="text" name="last_name" value="<%= onerec.last_name %>" required> </td>
+</tr>
+<tr> <td> Email: </td> <td> <textarea name="email" rows="10" cols="30"><%= onerec.email
+%></textarea> </td> </tr>
+<tr> <td> Phone: </td> <td> <input type="text" name="phone" value="<%= onerec.phone %>" required> </td> </tr>
+<tr> <td> Address 1: </td> <td> <input type="text" name="address_1" value="<%= onerec.address_1 %>" required> </td> </tr>
+<tr> <td> Address 2: </td> <td> <input type="text" name="address_2" value="<%= onerec.address_2 %>" required> </td> </tr>
+<tr> <td> City: </td> <td> <input type="text" name="city" value="<%= onerec.city %>" required> </td> </tr>
+<tr> <td> State: </td> <td> <input type="text" name="state" value="<%= onerec.state %>" required> </td> </tr>
+<tr> <td> Zip: </td> <td> <input type="text" name="zip" value="<%= onerec.zip %>" required> </td> </tr>
+</table>
+<button type="submit">Save</button>
+</form>
+

@@ -1,0 +1,14 @@
+<h1> Edit Membership</h1>
+<form action="/memberships/save" method="post">
+<input type="hidden" name="membership_id" value="<%= onerec.membership_id %>" >
+<table>
+<tr> <td> Customer ID: </td> <td> <input type="text" name="customer_id" value="<%= onerec.customer_id %>" required> </td></tr>
+<tr> <td> Membership Type: </td> <td> <input type="text" name="membership_type" value="<%= onerec.membership_type %>" required> </td></tr>
+<tr> <td> Start Date: </td> <td> <input type="date" name="start_date" value="<%= onerec.start_date
+%>" required> </td> </tr>
+<tr> <td> End Date: </td> <td> <input type="date" name="end_date" value="<%= onerec.end_date
+%>" > </td> </tr>
+<tr> <td> Points: </td> <td> <input type="text" name="points" value="<%= onerec.points %>" required> </td> </tr>
+</table>
+<button type="submit">Save</button>
+</form>

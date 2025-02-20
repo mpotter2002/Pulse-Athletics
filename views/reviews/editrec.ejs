@@ -1,0 +1,14 @@
+<h1> Edit Review</h1>
+<form action="/reviews/save" method="post">
+<input type="hidden" name="review_id" value="<%= onerec.review_id %>" >
+<table>
+<tr> <td> Customer ID: </td> <td> <input type="text" name="customer_id" value="<%= onerec.customer_id %>"
+required> </td> </tr>
+<tr> <td> Product ID: </td> <td> <input type="text" name="product_id" value="<%= onerec.product_id %>" required> </td>
+</tr>
+<tr> <td> Rating: </td> <td> <input type="number" name="rating" value="<%= onerec.rating %>" required> </td> </tr>
+<tr> <td> Review Date: </td> <td> <input type="date" name="review_date" value="<%= onerec.review_date %>" required> </td> </tr>
+<tr> <td> Review Text: </td> <td> <input type="text" name="review_text" value="<%= onerec.review_text %>" required> </td> </tr>
+</table>
+<button type="submit">Save</button>
+</form>

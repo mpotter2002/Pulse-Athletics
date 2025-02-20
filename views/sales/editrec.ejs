@@ -1,0 +1,14 @@
+<h1> Edit Sale</h1>
+<form action="/sales/save" method="post">
+<input type="hidden" name="sale_id" value="<%= onerec.sale_id %>" >
+<table>
+<tr> <td> Customer ID: </td> <td> <input type="text" name="customer_id" value="<%= onerec.customer_id %>"
+required> </td> </tr>
+<tr> <td> Product ID: </td> <td> <input type="text" name="product_id" value="<%= onerec.product_id %>" required> </td>
+</tr>
+<tr> <td> Sale Date: </td> <td> <input type="date" name="sale_date" value="<%= onerec.sale_date %>" required> </td> </tr>
+<tr> <td> Quantity: </td> <td> <input type="number" name="quantity" value="<%= onerec.quantity %>" required> </td> </tr>
+<tr> <td> Total Price: </td> <td> <input type="number" name="total_price" value="<%= onerec.total_price %>" required> </td> </tr>
+</table>
+<button type="submit">Save</button>
+</form>

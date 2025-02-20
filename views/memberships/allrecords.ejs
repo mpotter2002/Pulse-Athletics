@@ -1,0 +1,29 @@
+<% if (allrecs.length > 0) {%>
+    <table>
+    <tr>
+        <th>Customer ID</th>
+        <th>Membership Type</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Points</th>
+        <th colspan="3">Actions</th>
+    </tr>
+
+    <% allrecs.forEach((recref, index) => { %>
+    <tr>
+    <td><%= recref.customer_id %></td>
+    <td><%= recref.membership_type %></td>
+    <td><%= recref.start_date %></td>
+    <td><%= recref.end_date %></td>
+    <td><%= recref.points %></td>
+    <td><a href='/memberships/<%= recref.customer_id %>/show'>
+    Details</a></td>
+    <td><a href='/memberships/<%= recref.customer_id %>/edit'>Edit</a></td>
+    <td><a href='/memberships/<%= recref.customer_id %>/delete' onclick="return confirm('Are you sure you want to delete this record?');">Delete</a></td>
+    </tr>
+    <% }); %>
+    </table>
+    <% } else { %>
+        <p>Not Records Available</p>
+    <% } %>
+    <p> <a href='/memberships/addrecord'>Add New</a> </p>
