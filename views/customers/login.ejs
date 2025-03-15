@@ -1,0 +1,14 @@
+<p><%= message %></p>
+<div class="container">
+<form action="/customers/login" method="post" >
+    <p>
+<label for="username">Username</label>
+<input type="text" id="username" name="username" required> 
+    </p>
+    <p>
+<label for="password">Password</label>
+<input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+    </p>
+<input type="submit" value="Submit">
+</form>
+</div>

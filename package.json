@@ -7,16 +7,17 @@
     "dev": "./node_modules/.bin/nodemon ./bin/www"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.18.1",
     "http-errors": "~1.6.3",
     "mariadb": "^3.4.0",
     "morgan": "~1.9.1",
     "nodemon": "^3.1.9"
   }
-
 }

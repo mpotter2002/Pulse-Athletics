@@ -5,11 +5,11 @@ var router = express.Router();
 // URL: http://localhost:3031/product/
 // ==================================================
 router.get('/', function(req, res, next) {
-    let query = "SELECT product_id, name, description, category, price, stock, product_images FROM Products";
+    let query = "SELECT product_id, name, description, category, price, stock, product_images, homepage FROM Products";
 // execute query
 db.query(query, (err, result) => {
 if (err) {
-    console.log(err);
+    console.log("Error: " + err);
     res.render('error');
 }
     res.render('product/allrecords', {allrecs: result });
@@ -21,12 +21,12 @@ if (err) {
 // URL: http://localhost:3031/product/3/show
 // ==================================================
 router.get('/:recordid/show', function(req, res, next) {
-    let query = "SELECT product_id, name, description, category, price, stock, product_images FROM Products WHERE product_id = " +
+    let query = "SELECT product_id, name, description, category, price, stock, product_images, homepage FROM Products WHERE product_id = " +
     req.params.recordid;
     // execute query
     db.query(query, (err, result) => {
     if (err) {
-    console.log(err);
+    console.log("Error: " + err);
     res.render('error');
     } else {
     res.render('product/onerec', {onerec: result[0] });
@@ -48,18 +48,24 @@ router.get('/addrecord', function(req, res, next) {
 // ==================================================
 router.post('/', function(req, res, next) {
 
-    let insertquery = "INSERT INTO Products (name, product_images, description, category, price, stock) VALUES (?, ?, ?, ?, ?, ?)";
+    let insertquery = "INSERT INTO Products (name, product_images, description, category, price, stock, homepage) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
+    var homepage_value=0;
+    if (req.body.homepage)
+    {
+        homepage_value = 1;
+    }
     db.query(insertquery,[
         req.body.productname,
         req.body.product_images,
         req.body.description,
         req.body.category,
         req.body.price,
-        req.body.stock
+        req.body.stock,
+        homepage_value
     ],(err, result) => {
     if (err) {
-    console.log(err);
+    console.log("Error: " + err);
     res.render('error');
     } else {
     res.redirect('/product');
@@ -72,12 +78,12 @@ router.post('/', function(req, res, next) {
 // URL: http://localhost:3031/product/3/edit
 // ==================================================
 router.get('/:recordid/edit', function(req, res, next) {
-    let query = "SELECT product_id, name, product_images, description, category, price, stock FROM Products WHERE product_id = " +
+    let query = "SELECT product_id, name, product_images, description, category, price, stock, homepage FROM Products WHERE product_id = " +
     req.params.recordid;
     // execute query
     db.query(query, (err, result) => {
     if (err) {
-        console.log(err);
+        console.log("Error: " + err);
         res.render('error');
     } else {
         res.render('product/editrec', {onerec: result[0] });
@@ -89,11 +95,17 @@ router.get('/:recordid/edit', function(req, res, next) {
 // Route to save edited data in database.
 // ==================================================
 router.post('/save', function(req, res, next) {
-    let updatequery = "UPDATE Products SET name = ?, product_images = ?, description = ?, category = ?, price = ?, stock = ? WHERE product_id = " + req.body.product_id;
+    let updatequery = "UPDATE Products SET name = ?, product_images = ?, description = ?, category = ?, price = ?, stock = ?, homepage = ? WHERE product_id = " + req.body.product_id;
     
-    db.query(updatequery,[req.body.productname, req.body.prodimage, req.body.description, req.body.category, req.body.price, req.body.stock],(err, result) => {
+    var homepage_value=0;
+    if (req.body.homepage)
+    {
+    homepage_value = 1;
+    }
+
+    db.query(updatequery,[req.body.productname, req.body.prodimage, req.body.description, req.body.category, req.body.price, req.body.stock, homepage_value],(err, result) => {
     if (err) {
-        console.log(err);
+        console.log("Error: " + err);
         res.render('error');
     } else {
         res.redirect('/product');
@@ -109,7 +121,7 @@ router.get('/:recordid/delete', function(req, res, next) {
     // execute query
     db.query(query, (err, result) => {
     if (err) {
-    console.log(err);
+    console.log("Error: " + err);
     res.render('error');
     } else {
     res.redirect('/product');

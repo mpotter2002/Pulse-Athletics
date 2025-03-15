@@ -1,0 +1,22 @@
+<h1>Add New Order Detail</h1>
+<form action="/orderdetails" method="post">
+<table>
+<tr>
+    <td>Order ID:</td>
+    <td><input type="number" name="order_id" required></td>
+</tr>
+<tr>
+    <td>Product ID:</td>
+    <td><input type="number" name="product_id" required></td>
+</tr>
+<tr>
+    <td>Quantity:</td>
+    <td><input type="number" name="quantity" required min="1"></td>
+</tr>
+<tr>
+    <td>Sale Price:</td>
+    <td><input type="number" name="saleprice" step="0.01" required></td>
+</tr>
+</table>
+<button type="submit">Add Order Detail</button>
+</form> 

@@ -1,0 +1,20 @@
+<% if (allrecs.length > 0) {%>
+    <% allrecs.forEach((recref, index) => { %>
+    <product>
+    <form action="/catalog/add" method="post" >
+    <input type="hidden" name="product_id" value=<%= recref.product_id %> >
+    <table>
+    <tr> <td colspan="2"><%= recref.name %></td></tr>
+    <tr> <td colspan="2"><%= recref.product_images %></td></tr>
+    <tr> <td>Category:</td> <td><%= recref.category %></td></tr>
+    <tr> <td>Price: $<%= recref.price %></td></tr>
+    <tr> <td colspan="2"><a href='/product/<%= recref.product_id %>/show'>Details</a></td></tr>
+    <tr> <td> Quantity: <input type="text" name="qty" size="3" required></td>
+    <td><button type="submit">Add to Cart</button></td>
+    </tr>
+    </table>
+    </form>
+    </product>
+    <% }); %>
+    <% } %>
+    

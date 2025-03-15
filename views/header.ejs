@@ -3,12 +3,24 @@
     <a href="/"><img src="/images/logo.png" width="70" height="40">
     </a></td>
     <td width='60%' align='center'><h1>Pulse athletics</h1></td>
-    <td width='10%' align='center'>Login</td>
-    <td width='10%' align='center'>Cart</td>
+    <td width='10%' align='center'> <% if(session.customer_id > 0) { %>
+        <b> Hello <b> <%= session.custname %>! </b> </br>
+        <a href='/customers/logout'>Logout</a>
+        <% } else { %>
+        <a href='/customers/register'>New Customer</a> </br>
+        <a href='/customers/login'>Login</a>
+        <% } %>
+        </td>
+    <td width='10%' align='center'><a href="/catalog/cart">Cart</a></td>
     </tr></table>
-    <p> SEARCH CONTROL </p>
+    <p><form action="/search" method="get">
+        Search: <input type="text"
+        name="searchcriteria">
+        <input type="submit" value="Go">
+        </form></p>
     <ul>
     <li> <a href="/">Home</a> </li>
+    <li> <a href="/catalog">Catalog</a> </li>
     <li> <a href="/about">About Us</a> </li>
     <li> <a href="/contact">Contact Us</a> </li>
     <li> <a href="/product">Products</a> </li>
@@ -17,6 +29,9 @@
     <li> <a href="/memberships">Memberships</a> </li>
     <li> <a href="/promotions">Promotions</a> </li>
     <li> <a href="/reviews">Reviews</a> </li>
-    <li> <a href="/sales">Sales</a> </li>
+    <li> <a href="/saleorder">Sales Order</a> </li>
+    <li> <a href="/orderdetails">Order Details</a> </li>
+    <li> <a href="/reports">Reports</a></li>
+
     </ul>
     

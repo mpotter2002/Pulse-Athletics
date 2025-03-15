@@ -1,0 +1,25 @@
+<h1>Edit Sales Order</h1>
+<form action="/saleorder/save" method="post">
+<input type="hidden" name="order_id" value="<%= onerec.order_id %>">
+<table>
+<tr>
+    <td>Customer ID:</td>
+    <td><input type="text" name="customer_id" value="<%= onerec.customer_id %>" required></td>
+</tr>
+<tr>
+    <td>Sale Date:</td>
+    <td><input type="date" name="saledate" value="<%= onerec.saledate %>" required></td>
+</tr>
+<tr>
+    <td>Payment Status:</td>
+    <td>
+        <select name="payment_status" required>
+            <option value="Pending" <%= onerec.payment_status === 'Pending' ? 'selected' : '' %>>Pending</option>
+            <option value="Paid" <%= onerec.payment_status === 'Paid' ? 'selected' : '' %>>Paid</option>
+            <option value="Failed" <%= onerec.payment_status === 'Failed' ? 'selected' : '' %>>Failed</option>
+        </select>
+    </td>
+</tr>
+</table>
+<button type="submit">Save Changes</button>
+</form>

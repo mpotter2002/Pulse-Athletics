@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
     // execute query
     db.query(query, (err, result) => {
         if (err) {
-            console.log(err);
+            console.log("Error: " + err);
             res.render('error');
         }
         res.render('memberships/allrecords', {allrecs: result });
@@ -25,7 +25,7 @@ router.get('/:recordid/show', function(req, res, next) {
     // execute query
     db.query(query, (err, result) => {
         if (err) {
-            console.log(err);
+            console.log("Error: " + err);
             res.render('error');
         } else {
             res.render('memberships/onerec', {onerec: result[0] });
@@ -59,7 +59,7 @@ router.post('/', function(req, res, next) {
         req.body.points
     ],(err, result) => {
         if (err) {
-            console.log(err);
+            console.log("Error: " + err);
             res.render('error');
         } else {
             res.redirect('/memberships');
@@ -76,7 +76,7 @@ router.get('/:recordid/edit', function(req, res, next) {
     // execute query
     db.query(query, (err, result) => {
     if (err) {
-        console.log(err);
+        console.log("Error: " + err);
         res.render('error');
     } else {
         res.render('memberships/editrec', {onerec: result[0] });
@@ -102,7 +102,7 @@ router.post('/save', function(req, res, next) {
         req.body.customer_id
     ],(err, result) => {
         if (err) {
-            console.log(err);
+            console.log("Error: " + err);
             res.render('error');
         } else {
             res.redirect('/memberships');
@@ -118,7 +118,7 @@ router.get('/:recordid/delete', function(req, res, next) {
     // execute query
     db.query(query, (err, result) => {
     if (err) {
-    console.log(err);
+    console.log("Error: " + err);
     res.render('error');
     } else {
     res.redirect('/memberships');

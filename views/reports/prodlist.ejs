@@ -1,0 +1,32 @@
+<% if (allrecs.length > 0) {%>
+    <table>
+    <tr>
+        <th>Product ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>Image URL</th>
+        <th>Homepage</th>
+    </tr>
+
+    <% allrecs.forEach((recref, index) => { %>
+    <tr>
+    <td><%= recref.product_id %></td>
+    <td><%= recref.name %></td>
+    <td><%= recref.description %></td>
+    <td><%= recref.category %></td>
+    <td><%= recref.price %></td>
+    <td><%= recref.stock %></td>
+    <td><%= recref.product_images %></td>
+    <td><%= recref.homepage %></td>
+    </tr>
+    <% }); %>
+    </table>
+    <% } else { %>
+        <p>Not Records Available</p>
+    <% } %>
+    
+
+    

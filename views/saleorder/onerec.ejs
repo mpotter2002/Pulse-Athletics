@@ -1,0 +1,24 @@
+<h1>Order Details</h1>
+<table>
+    <tr>
+        <td><strong>Order ID:</strong></td>
+        <td><%= onerec.order_id %></td>
+    </tr>
+    <tr>
+        <td><strong>Customer ID:</strong></td>
+        <td><%= onerec.customer_id %></td>
+    </tr>
+    <tr>
+        <td><strong>Sale Date:</strong></td>
+        <td><%= onerec.saledate %></td>
+    </tr>
+    <tr>
+        <td><strong>Payment Status:</strong></td>
+        <td><%= onerec.payment_status %></td>
+    </tr>
+</table>
+
+<p>
+    <a href="/saleorder">Back to Orders</a> |
+    <a href="/saleorder/<%= onerec.order_id %>/edit">Edit Order</a>
+</p>

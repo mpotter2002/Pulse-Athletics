@@ -3,8 +3,8 @@
 <table>
 <tr> <td> Membership Type: </td> <td> <input type="text" name="membership_type" required> </td></tr>
 <tr> <td> Customer ID: </td> <td> <input type="text" name="customer_id" placeholder="Enter customer id" required> </td></tr>
-<tr> <td> Start Date: </td> <td> <input type="date" name="start_date"> </td> </tr>
-<tr> <td> End Date: </td> <td> <input type="date" name="end_date"> </td> </tr>
+<tr> <td> Start Date: </td> <td> <input type="date" name="start_date" value="<%= onerec.start_date %>" required> </td> </tr>
+<tr> <td> End Date: </td> <td> <input   type="date" name="end_date" value="<%= onerec.end_date %>" required> </td> </tr> 
 <tr> <td> Points: </td> <td> <input type="text" name="points" required> </td> </tr>
 </table>
 <button type="submit">Submit</button>

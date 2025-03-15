@@ -1,0 +1,24 @@
+<h1>New Sales Order</h1>
+<form action="/saleorder" method="post">
+<table>
+<tr>
+    <td>Customer ID:</td>
+    <td><input type="text" name="customer_id" required></td>
+</tr>
+<tr>
+    <td>Sale Date:</td>
+    <td><input type="date" name="saledate" required></td>
+</tr>
+<tr>
+    <td>Payment Status:</td>
+    <td>
+        <select name="payment_status" required>
+            <option value="Pending">Pending</option>
+            <option value="Paid">Paid</option>
+            <option value="Failed">Failed</option>
+        </select>
+    </td>
+</tr>
+</table>
+<button type="submit">Create Order</button>
+</form>

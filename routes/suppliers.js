@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
     // execute query
     db.query(query, (err, result) => {
         if (err) {
-            console.log(err);
+            console.log("Error: " + err);
             res.render('error');
         }
         res.render('suppliers/allrecords', {allrecs: result });
@@ -25,7 +25,7 @@ router.get('/:recordid/show', function(req, res, next) {
     // execute query
     db.query(query, (err, result) => {
         if (err) {
-            console.log(err);
+            console.log("Error: " + err);
             res.render('error');
         } else {
             res.render('suppliers/onerec', {onerec: result[0] });
@@ -72,7 +72,7 @@ router.get('/:recordid/edit', function(req, res, next) {
     // execute query
     db.query(query, (err, result) => {
     if (err) {
-        console.log(err);
+        console.log("Error: " + err);
         res.render('error');
     } else {
         res.render('suppliers/editrec', {onerec: result[0] });
@@ -88,7 +88,7 @@ router.post('/save', function(req, res, next) {
     
     db.query(updatequery,[req.body.name, req.body.contact_name, req.body.email, req.body.phone, req.body.address],(err, result) => {
     if (err) {
-        console.log(err);
+        console.log("Error: " + err);
         res.render('error');
     } else {
         res.redirect('/supplier');

@@ -1,0 +1,28 @@
+<h1>Sale Orders</h1>
+<% if (allrecs.length > 0) {%>
+    <table>
+    <tr>
+        <th>Order ID</th>
+        <th>Customer ID</th>
+        <th>Sale Date</th>
+        <th>Payment Status</th>
+        <th colspan="4">Actions</th>
+    </tr>
+
+    <% allrecs.forEach((recref, index) => { %>
+    <tr>
+        <td><%= recref.order_id %></td>
+        <td><%= recref.customer_id %></td>
+        <td><%= recref.saledate %></td>
+        <td><%= recref.payment_status %></td>
+        <td><a href='/saleorder/<%= recref.order_id %>/show'>Details</a></td>
+        <td><a href='/orderdetails/order/<%= recref.order_id %>'>Order Items</a></td>
+        <td><a href='/saleorder/<%= recref.order_id %>/edit'>Edit</a></td>
+        <td><a href='/saleorder/<%= recref.order_id %>/delete' onclick="return confirm('Are you sure you want to delete this order?');">Delete</a></td>
+    </tr>
+    <% }); %>
+    </table>
+    <% } else { %>
+        <p>No Records Available</p>
+    <% } %>
+    <p> <a href='/saleorder/addrecord'>Add New Order</a> </p>

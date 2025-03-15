@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var layouts = require('express-ejs-layouts');
+const session = require('express-session');
 
 const dotenv = require('dotenv');
 dotenv.config();
@@ -37,9 +38,19 @@ var customerRouter = require('./routes/customers');
 var membershipRouter = require('./routes/memberships');
 var promotionRouter = require('./routes/promotions');
 var reviewRouter = require('./routes/reviews');
-var salesRouter = require('./routes/sales');
+var saleorderRouter = require('./routes/saleorder');
+var orderdetailsRouter = require('./routes/orderdetails');
+var reportsRouter = require('./routes/reports');
+var searchRouter = require('./routes/search');
+var catalogRouter = require('./routes/catalog');
 
 var app = express();
+
+app.use(session({secret: 'GoEasyAppSecret'}));
+app.use(function(req,res,next){
+res.locals.session = req.session;
+next();
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -64,7 +75,12 @@ app.use('/customers', customerRouter);
 app.use('/memberships', membershipRouter);
 app.use('/promotions', promotionRouter);
 app.use('/reviews', reviewRouter);  
-app.use('/sales', salesRouter);
+app.use('/saleorder', saleorderRouter);
+app.use('/orderdetails', orderdetailsRouter);
+app.use('/reports', reportsRouter);
+app.use('/search', searchRouter);
+app.use('/catalog', catalogRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

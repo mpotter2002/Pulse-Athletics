@@ -1,0 +1,35 @@
+<% if (allrecs.length > 0) {%>
+    <table>
+    <tr>
+        <th>Customer ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Address 1</th>
+        <th>Address 2</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip</th>
+    </tr>
+
+    <% allrecs.forEach((recref, index) => { %>
+    <tr>
+    <td><%= recref.customer_id %></td>
+    <td><%= recref.first_name %></td>
+    <td><%= recref.last_name %></td>
+    <td><%= recref.email %></td>
+    <td><%= recref.phone %></td>
+    <td><%= recref.address_1 %></td>
+    <td><%= recref.address_2 %></td>
+    <td><%= recref.city %></td>
+    <td><%= recref.state %></td>
+    <td><%= recref.zip %></td>
+    </tr>
+    <% }); %>
+    </table>
+    <% } else { %>
+        <p>Not Records Available</p>
+    <% } %>    
+
+    

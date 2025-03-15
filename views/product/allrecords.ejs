@@ -8,6 +8,7 @@
         <th>Price</th>
         <th>Stock</th>
         <th>Image URL</th>
+        <th>Homepage</th>
         <th colspan="3">Actions</th>
     </tr>
 
@@ -17,9 +18,10 @@
     <td><%= recref.name %></td>
     <td><%= recref.description %></td>
     <td><%= recref.category %></td>
-    <td><%= recref.price %></td>
+    <td align = "center"><%= Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(recref.price) %></td>
     <td><%= recref.stock %></td>
     <td><%= recref.product_images %></td>
+    <td align="center"><%= recref.homepage %></td>
     <td><a href='/product/<%= recref.product_id %>/show'>
     Details</a></td>
     <td><a href='/product/<%= recref.product_id%>/edit'>Edit</a></td>

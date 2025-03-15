@@ -1,3 +1,4 @@
+<table><tr><td width="80%">
 
 <img src="/images/YoungSportyPhoto.jpg" width="100%">
 <h1> Welcome to the Pulse Atheltics</h1>
@@ -5,4 +6,38 @@
 
 <p> Date: <%= datevalue %> </p>
 
-<p> <%= passdata %> </p>
+<p> Welcome to Pulse Athletics</p>
+<% if (allrecs.length > 0) {%>
+<% allrecs.forEach((recref, index) => { %>
+<product>
+<table>
+    <tr> <td colspan="2"><%= recref.name %></td></tr>
+    <tr> <td colspan="2"><%= recref.product_images %></td></tr>
+    <tr> <td><%= recref.category %></td> </tr>
+    <tr> <td><%= recref.price %></td> </tr>
+    <tr> <td colspan="2"><a href='/product/<%= recref.product_id%>/show'>Details</a></td></tr>
+</table>
+</product>
+<% }); %>
+<% } %>
+</td>
+
+<td width="20%">
+    <% if (promos.length > 0) {%>
+    <table>
+        <% promos.forEach((recref, index) => { %>
+        <tr>
+            <td>
+                <img src="<%= recref.promoimages %>" 
+                     alt="<%= recref.promotion_name %>" 
+                     style="width:100%; height:100%;">
+            </td>
+        </tr>
+        <% }); %>
+    </table>
+    <% } %>
+</td>
+</tr></table>
+    
+
+

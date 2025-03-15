@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 // execute query
 db.query(query, (err, result) => {
 if (err) {
-    console.log(err);
+    console.log("Error: " + err);
     res.render('error');
 }
     res.render('promotions/allrecords', {allrecs: result });
@@ -27,7 +27,7 @@ router.get('/:recordid/show', function(req, res, next) {
     // execute query
     db.query(query, (err, result) => {
     if (err) {
-    console.log(err);
+    console.log("Error: " + err);
     res.render('error');
     } else {
     res.render('promotions/onerec', {onerec: result[0] });
@@ -60,7 +60,7 @@ router.post('/', function(req, res, next) {
         req.body.product_id
     ],(err, result) => {
     if (err) {
-    console.log(err);
+    console.log("Error: " + err);
     res.render('error');
     } else {
     res.redirect('/promotions');
@@ -73,12 +73,12 @@ router.post('/', function(req, res, next) {
 // URL: http://localhost:3031/promotions/3/edit
 // ==================================================
 router.get('/:recordid/edit', function(req, res, next) {
-    let query = "SELECT promotion_id, promotion_name, description, discount, start_date, end_date, product_id FROM promotions WHERE promotion_id = " +
+    let query = "SELECT promotion_id, promotion_name, description, discount, start_date, end_date, product_id, promoimages FROM promotions WHERE promotion_id = " +
     req.params.recordid;
     // execute query
     db.query(query, (err, result) => {
     if (err) {
-        console.log(err);
+        console.log("Error: " + err);
         res.render('error');
     } else {
         res.render('promotions/editrec', {onerec: result[0] });
@@ -94,7 +94,7 @@ router.post('/save', function(req, res, next) {
     
     db.query(updatequery,[req.body.promotion_name, req.body.description, req.body.discount, req.body.start_date, req.body.end_date, req.body.product_id],(err, result) => {
     if (err) {
-        console.log(err);
+        console.log("Error: " + err);
         res.render('error');
     } else {
         res.redirect('/promotions');
@@ -110,7 +110,7 @@ router.get('/:recordid/delete', function(req, res, next) {
     // execute query
     db.query(query, (err, result) => {
     if (err) {
-    console.log(err);
+    console.log("Error: " + err);
     res.render('error');
     } else {
     res.redirect('/promotions');
