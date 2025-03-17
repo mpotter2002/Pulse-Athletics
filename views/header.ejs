@@ -23,6 +23,8 @@
     <li> <a href="/catalog">Catalog</a> </li>
     <li> <a href="/about">About Us</a> </li>
     <li> <a href="/contact">Contact Us</a> </li>
+
+    <% if(session.isadmin) { %>
     <li> <a href="/product">Products</a> </li>
     <li> <a href="/supplier">Suppliers</a> </li>
     <li> <a href="/customers">Customers</a> </li>
@@ -32,6 +34,6 @@
     <li> <a href="/saleorder">Sales Order</a> </li>
     <li> <a href="/orderdetails">Order Details</a> </li>
     <li> <a href="/reports">Reports</a></li>
-
+    <% } %>
     </ul>
     
