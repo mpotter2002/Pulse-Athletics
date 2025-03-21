@@ -1,15 +1,23 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: white;
 }
 
 a {
-  color: #00B7FF;
+  color: red;
 }
 
 h1{
   font-family: Arial, sans-serif;
-  color: darkred;
+  color: red;
+  }
+  h2{
+    font-family: Arial, sans-serif;
+    color: black;
+  }
+  p {
+    color: black;
   }
   img {
   margin: 5px;
@@ -33,7 +41,7 @@ h1{
   margin: 5px;
   border: 2px solid #ccc;
   float: left;
-  background: #ffffe6;
+  background: white;
   box-shadow: 5px 5px 2px #888888;
   min-width: 200px;
   max-width: 200px;
@@ -48,14 +56,14 @@ h1{
   padding: 0;
   overflow: hidden;
   border: 1px solid #e7e7e7;
-  background-color: #f3f3f3;
+  background-color: black;
   }
   li {
   float: left;
   }
   li a {
   display: block;
-  color: #666;
+  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -67,4 +75,6 @@ h1{
   color: white;
   background-color: #4CAF50;
   }
+
+ 
   

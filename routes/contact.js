@@ -4,4 +4,6 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
 res.render('contact', { title: 'Contact Pulse Athletics' });
 });
+
+
 module.exports = router;

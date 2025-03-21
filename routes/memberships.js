@@ -34,11 +34,16 @@ router.get('/:recordid/show', function(req, res, next) {
 });
 
 // ==================================================
-// Route to show empty form to obtain input form end-user.
+// Route to show empty form to obtain input from end-user.
 // URL: http://localhost:3031/memberships/addrecord
 // ==================================================
 router.get('/addrecord', function(req, res, next) {
-    res.render('memberships/addrec');
+    try {
+        res.render('memberships/addrec', { onerec: {} });
+    } catch (error) {
+        console.error("Error:", error);
+        res.render('error');
+    }
 });
 
 // ==================================================
@@ -59,8 +64,8 @@ router.post('/', function(req, res, next) {
         req.body.points
     ],(err, result) => {
         if (err) {
-            console.log("Error: " + err);
-            res.render('error');
+            console.log("Error inserting membership: " + err);
+            res.render('error', { errorMessage: "Failed to add membership. Please check your input." });
         } else {
             res.redirect('/memberships');
         }

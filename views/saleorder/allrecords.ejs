@@ -16,7 +16,6 @@
         <td><%= recref.saledate %></td>
         <td><%= recref.payment_status %></td>
         <td><a href='/saleorder/<%= recref.order_id %>/show'>Details</a></td>
-        <td><a href='/orderdetails/order/<%= recref.order_id %>'>Order Items</a></td>
         <td><a href='/saleorder/<%= recref.order_id %>/edit'>Edit</a></td>
         <td><a href='/saleorder/<%= recref.order_id %>/delete' onclick="return confirm('Are you sure you want to delete this order?');">Delete</a></td>
     </tr>

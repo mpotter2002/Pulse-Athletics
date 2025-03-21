@@ -1,3 +1,27 @@
-
 <h1>Contact Pulse Athletics</h1>
+
+<div id="thank-you-message" style="display: none;">
+    <p>Thank you! We will respond shortly.</p>
+</div>
+
+<form id="contact-form" style="display: flex; flex-direction: column; width: 300px;">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required style="margin-bottom: 15px;">
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required style="margin-bottom: 15px;">
+    
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" required style="margin-bottom: 15px;"></textarea>
+    
+    <button type="submit">Send</button>
+</form>
+
+<script>
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        document.getElementById('contact-form').style.display = 'none'; // Hide the form
+        document.getElementById('thank-you-message').style.display = 'block'; // Show the thank you message
+    });
+</script>
 

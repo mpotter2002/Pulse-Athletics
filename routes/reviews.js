@@ -40,8 +40,8 @@ router.get('/:recordid/show', function(req, res, next) {
 // URL: http://localhost:3031/reviews/addrecord
 // ==================================================
 router.get('/addrecord', function(req, res, next) {
-    res.render('reviews/addrec');
-    });
+    res.render('reviews/addrec', { onerec: {} });
+});
      
     
 // ==================================================

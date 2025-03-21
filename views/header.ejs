@@ -1,11 +1,11 @@
-<table bgcolor='lightgrey' width='100%'> <tr>
+<table bgcolor='black' width='100%'> <tr>
     <td width='20%' align='left'>
     <a href="/"><img src="/images/logo.png" width="70" height="40">
     </a></td>
     <td width='60%' align='center'><h1>Pulse athletics</h1></td>
     <td width='10%' align='center'> <% if(session.customer_id > 0) { %>
-        <b> Hello <b> <%= session.custname %>! </b> </br>
-        <a href='/customers/logout'>Logout</a>
+        <b style="color: white;"> Hello <b style="color: white;"> <%= session.custname %>! </b> </br>
+        <a href='/customers/logout' style="color: white;">Logout</a>
         <% } else { %>
         <a href='/customers/register'>New Customer</a> </br>
         <a href='/customers/login'>Login</a>
@@ -13,16 +13,16 @@
         </td>
     <td width='10%' align='center'><a href="/catalog/cart">Cart</a></td>
     </tr></table>
-    <p><form action="/search" method="get">
-        Search: <input type="text"
-        name="searchcriteria">
-        <input type="submit" value="Go">
-        </form></p>
+
     <ul>
     <li> <a href="/">Home</a> </li>
     <li> <a href="/catalog">Catalog</a> </li>
     <li> <a href="/about">About Us</a> </li>
     <li> <a href="/contact">Contact Us</a> </li>
+    <p><form action="/search" method="get" style="color: white;" align="right">
+        Search: <input type="text" name="searchcriteria">
+        <input type="submit" value="Go">
+        </form></p>
 
     <% if(session.isadmin) { %>
     <li> <a href="/product">Products</a> </li>
@@ -34,6 +34,7 @@
     <li> <a href="/saleorder">Sales Order</a> </li>
     <li> <a href="/orderdetails">Order Details</a> </li>
     <li> <a href="/reports">Reports</a></li>
+    <br>
     <% } %>
     </ul>
     
